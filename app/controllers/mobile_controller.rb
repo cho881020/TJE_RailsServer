@@ -21,6 +21,7 @@ class MobileController < ApplicationController
 
   def sign_in
     # 아이디와 비번이 올바른 사용자가 있는가?
+    # 커밋용 주석
 
     if User.where(loginId: params[:id], password: params[:pw]).exists?
       myJson = {"result" => TRUE, "메세지" => "로그인 성공"}
