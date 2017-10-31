@@ -74,4 +74,12 @@ class MobileController < ApplicationController
 
   end
 
+  def getFirstStudentAbsentList
+
+    s = Student.find(1)
+    myJson = {"1번학생 결석목록" => s.absents}
+    render json: myJson
+
+  end
+
 end
