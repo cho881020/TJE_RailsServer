@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171031040524) do
   end
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "loginId"
+    t.string   "loginPw"
     t.string   "name"
     t.string   "phone"
     t.datetime "created_at", null: false
