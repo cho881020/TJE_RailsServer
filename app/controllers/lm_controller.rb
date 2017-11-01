@@ -70,4 +70,12 @@ class LmController < ApplicationController
 
   end
 
+  def all_absents
+    absents = Absent.all()
+
+    resultJson = {"result" => TRUE, "message" => "get list ok", "absents" => absents}
+    render json: resultJson
+
+  end
+
 end
