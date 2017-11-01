@@ -73,9 +73,33 @@ class LmController < ApplicationController
   def all_absents
     absents = Absent.all()
 
+
+
     resultJson = {"result" => TRUE, "message" => "get list ok", "absents" => absents}
     render json: resultJson
 
+  end
+
+  def testFirstAbsent
+
+    abs = Absent.first()
+    tempJson = abs.as_json
+    tempJson["student"] = abs.student
+
+    resultJson = {"result" => TRUE, "message" => "get abs ok", "abs" => tempJson}
+    render json: resultJson
+
+
+  end
+
+  def test8Std
+
+    std = Student.find(8)
+    tempJson = std.as_json
+    tempJson["absents"] = std.absents
+
+    resultJson = {"result" => TRUE, "message" => "get abs ok", "std" => tempJson}
+    render json: resultJson
   end
 
 end
