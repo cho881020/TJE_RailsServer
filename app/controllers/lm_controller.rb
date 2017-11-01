@@ -54,4 +54,20 @@ class LmController < ApplicationController
     end
   end
 
+  def register_absent
+
+    abs = Absent.new
+
+    abs.absentDate = params[:date]
+    abs.reason = params[:reason]
+    abs.student_id = params[:student_id]
+    # lecture_id는 차후에 작업.
+
+    abs.save
+
+    resultJson = {"result" => TRUE, "message" => "absent register ok"}
+    render json: resultJson
+
+  end
+
 end
